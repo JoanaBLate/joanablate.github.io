@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div style="padding:50px; width:100vw; height:100vh; background-color:orange;">
+        <br><br>
+        <button onclick="fileSelector.click()">file selector</button>
+        <br><br>
+        <button onclick="downloadLink.click()">download</button>
+    </div>
+
+<script>
+
+"use strict"
+
+
+var fileSelector
+var downloadLink
+
+///////////////////////////////////////////////////////////////////////////////
+
+function main() {
+    //
+    createFileSelector()
+    createDownloadLink()
+    //
+    const div = document.createElement("div")
+    div.style.position = "fixed"
+    div.style.visibility = "hidden"
+    div.style.zIndex = "-90"
+    //
+    div.appendChild(downloadLink)
+    div.appendChild(fileSelector)
+    //
+    document.body.appendChild(div) 
+}
+
+function createFileSelector() {
+    fileSelector = document.createElement("input")
+    fileSelector.type = "file"
+    fileSelector.onchange = fileSelectorChanged
+}
+
+function createDownloadLink() {
+    downloadLink = document.createElement("a")
+    downloadLink.text = "pseudo-download-link"
+    downloadLink.target = "_blank"
+    downloadLink.href = ""
+}
+
+function fileSelectorChanged() { }
+
+
+main()
+
+</script>
+</body>
+</html>
